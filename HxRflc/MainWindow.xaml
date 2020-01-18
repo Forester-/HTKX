@@ -1,0 +1,45 @@
+﻿<Window x:Class="HxRflc.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HxRflc"
+        xmlns:hx="http://helix-toolkit.org/wpf/SharpDX"
+        xmlns:sdx="clr-namespace:SharpDX;assembly=SharpDX.Mathematics"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <hx:Viewport3DX
+        x:Name="viewport"
+        Orthographic="True"
+        BackgroundColor="White"
+        ShowCameraInfo="True"
+        ShowFrameDetails="True"
+        ShowFrameRate="True"
+        ShowCoordinateSystem="True"
+        ShowTriangleCountInfo="True"
+        >
+
+        <hx:Viewport3DX.EffectsManager>
+            <hx:DefaultEffectsManager/>
+        </hx:Viewport3DX.EffectsManager>
+
+        <hx:AmbientLight3D Color="White"/>
+
+        <hx:GroupModel3D>
+            
+            <hx:MeshGeometryModel3D
+                Geometry="{Binding Plane1Geometry}"
+                Material="{Binding Plane1Material}"
+                IsTransparent="True"/>
+
+            <hx:MeshGeometryModel3D
+                Geometry="{Binding Plane2Geometry}"
+                Material="{Binding Plane2Material}"
+                IsTransparent="True"/>
+            
+        </hx:GroupModel3D>
+
+    </hx:Viewport3DX>
+    
+</Window>
