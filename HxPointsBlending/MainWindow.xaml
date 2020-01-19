@@ -1,0 +1,74 @@
+﻿<Window x:Class="HxPointsBlending.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HxPointsBlending"
+        xmlns:hx="http://helix-toolkit.org/wpf/SharpDX"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <hx:Viewport3DX
+        x:Name="viewport"
+        Orthographic="True"
+        BackgroundColor="White"
+        >
+
+        <hx:Viewport3DX.EffectsManager>
+            <hx:DefaultEffectsManager/>
+        </hx:Viewport3DX.EffectsManager>
+
+        <hx:AmbientLight3D Color="White"/>
+
+        <hx:GroupModel3D>
+
+            <hx:MeshGeometryModel3D
+                Geometry="{Binding PlaneGeometry}"
+                Material="{Binding RedDiffuseMaterial}"
+                Transform="{Binding RedDiffusePlaneTransform}"
+                IsTransparent="True"/>
+
+            <hx:MeshGeometryModel3D
+                Geometry="{Binding PlaneGeometry}"
+                Material="{Binding BlueDiffuseMaterial}"
+                Transform="{Binding BlueDiffusePlaneTransform}"
+                IsTransparent="True"/>
+
+            <hx:PointGeometryModel3D
+                Geometry="{Binding PointsGeometry}"
+                Instances="{Binding PointsInstances}"
+                Transform="{Binding DiffusePointsTransform}"
+                Color="Black"
+                Figure="Ellipse"
+                FixedSize="True"
+                Size="20, 20" />
+
+        </hx:GroupModel3D>
+
+        <hx:GroupModel3D>
+
+            <hx:MeshGeometryModel3D
+                Geometry="{Binding PlaneGeometry}"
+                Material="{Binding RedPhongMaterial}"
+                Transform="{Binding RedPhongPlaneTransform}"
+                IsTransparent="True"/>
+
+            <hx:MeshGeometryModel3D
+                Geometry="{Binding PlaneGeometry}"
+                Material="{Binding BluePhongMaterial}"
+                Transform="{Binding BluePhongPlaneTransform}"
+                IsTransparent="True"/>
+
+            <hx:PointGeometryModel3D
+                Geometry="{Binding PointsGeometry}"
+                Instances="{Binding PointsInstances}"
+                Transform="{Binding PhongPointsTransform}"
+                Color="Black"
+                Figure="Ellipse"
+                FixedSize="True"
+                Size="20, 20" />
+
+        </hx:GroupModel3D>
+
+    </hx:Viewport3DX>
+</Window>
