@@ -12,7 +12,7 @@ namespace HxRflc
 
             InitializeComponent();
 
-            var builder = new MeshBuilder(false, false, false);
+            var builder = new MeshBuilder(true, false, false);
             builder.AddRectangularMesh(BoxFaces.Front, 10, 10, 100, 100);
             Plane1Geometry = builder.ToMesh();
 
