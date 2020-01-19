@@ -16,7 +16,7 @@ namespace HxRflc
             builder.AddRectangularMesh(BoxFaces.Front, 10, 10, 100, 100);
             Plane1Geometry = builder.ToMesh();
 
-            builder = new MeshBuilder(false, false, false);
+            builder = new MeshBuilder(true, false, false);
             builder.AddRectangularMesh(BoxFaces.Front, 10, 10, 100, 100);
             Plane2Geometry = builder.ToMesh();
 
@@ -48,16 +48,15 @@ namespace HxRflc
                 DiffuseColor = new Color4(0f, 0f, 1f, 0.5f),
             };
 
-
-            if (viewport.Camera is OrthographicCamera camera)
-			{
-				camera.NearPlaneDistance = -5000;
-				camera.FarPlaneDistance = 5000;
-				camera.LookDirection = new System.Windows.Media.Media3D.Vector3D(0, 0, -10);
-                camera.Position = new System.Windows.Media.Media3D.Point3D(0, 0, 11);
-				camera.UpDirection = new System.Windows.Media.Media3D.Vector3D(0, 1, 0);
-                camera.Width = 200;
-			}
+            var camera = new OrthographicCamera()
+            {
+                LookDirection = new System.Windows.Media.Media3D.Vector3D(0, 0, -11),
+                Position = new System.Windows.Media.Media3D.Point3D(0, 0, 11),
+                UpDirection = new System.Windows.Media.Media3D.Vector3D(0, 1, 0),
+                FarPlaneDistance = 5000,
+                Width = 200,
+            };
+            viewport.Camera = camera;
 		}
 
 		public MeshGeometry3D Plane1Geometry { get; }
