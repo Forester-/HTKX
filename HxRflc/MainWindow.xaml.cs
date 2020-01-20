@@ -50,10 +50,11 @@ namespace HxRflc
 
             var camera = new OrthographicCamera()
             {
-                LookDirection = new System.Windows.Media.Media3D.Vector3D(0, 0, -11),
-                Position = new System.Windows.Media.Media3D.Point3D(0, 0, 11),
+                LookDirection = new System.Windows.Media.Media3D.Vector3D(0, 0, -200),
+                Position = new System.Windows.Media.Media3D.Point3D(0, 0, 200),
                 UpDirection = new System.Windows.Media.Media3D.Vector3D(0, 1, 0),
                 FarPlaneDistance = 5000,
+                NearPlaneDistance = 1,
                 Width = 200,
             };
             viewport.Camera = camera;
