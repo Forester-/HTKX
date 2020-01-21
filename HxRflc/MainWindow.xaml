@@ -18,6 +18,7 @@
         ShowFrameRate="True"
         ShowCoordinateSystem="True"
         ShowTriangleCountInfo="True"
+        EnableOITRendering="False"
         >
 
         <hx:Viewport3DX.EffectsManager>
